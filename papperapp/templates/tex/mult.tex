@@ -1,0 +1,63 @@
+\documentclass[12pt,sans]{article}
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+\usepackage[default]{sourcecodepro}
+%\usepackage{fullpage}
+\usepackage{fancyhdr}
+%\usepackage{euler}
+%\usepackage{euscript}
+
+\usepackage[a4paper, total={7in, 10in}]{geometry}
+
+\pagestyle{fancy}
+\lhead{Mattepapper}
+\chead{\large{ {{- exercise_name -}} }}
+\rhead{ {{- student_name -}} }
+\cfoot{\tiny{\textcopyright Eric Frid\'en, 2019}}
+
+%\DeclareMathSizes{12}{17.28}{9}{7}
+
+\newcommand{\ans}{\rule[-4mm]{2cm}{0.5pt}}
+\newcommand*{\script}{\fontfamily{qzc}\selectfont}
+
+\usepackage{tasks}
+%\usepackage{exsheets}
+%\SetupExSheets[question]{type=exam}
+
+%\usepackage{xsim}
+
+\begin{document}
+\begin{center}
+    L\"as instruktionerna p\aa\ baksidan av papperet!
+\end{center}
+
+
+\section{}
+\begin{tasks}(3)
+	\task \( \displaystyle {{- ex.0.0 -}} = \) {\huge \script {{- ex.0.1 -}} }
+	\task \( \displaystyle {{- ex.1.0 -}} = \) {\huge \script {{- ex.1.1 -}} }
+	\task \( \displaystyle {{- ex.2.0 -}} = \) {\huge \script {{- ex.2.1 -}} }
+\end{tasks}
+
+\section{}
+\begin{tasks}(3)
+	\task \( \displaystyle {{- q.0.0 -}} = \ans \)
+	\task \( \displaystyle {{- q.0.1 -}} = \ans \)
+	\task \( \displaystyle {{- q.0.2 -}} = \ans \)
+\end{tasks}
+
+\section{}
+\begin{tasks}(3)
+	\task \( \displaystyle {{- q.1.0 -}} = \ans \)
+	\task \( \displaystyle {{- q.1.1 -}} = \ans \)
+	\task \( \displaystyle {{- q.1.2 -}} = \ans \)
+\end{tasks}
+
+\section{}
+\begin{tasks}(3)
+	\task \( \displaystyle {{- q.2.0 -}} = \ans \)
+	\task \( \displaystyle {{- q.2.1 -}} = \ans \)
+	\task \( \displaystyle {{- q.2.2 -}} = \ans \)
+\end{tasks}
+
+\end{document}
