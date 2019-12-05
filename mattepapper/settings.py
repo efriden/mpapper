@@ -26,7 +26,9 @@ SECRET_KEY = '448c1cb5-36cb-46a7-8e8b-0a29c5142122'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'mpapper.herokuapp.com'
+]
 
 
 # Application definition
@@ -75,7 +77,7 @@ TEMPLATES = [
 	#tex:
 	{
         'NAME': 'tex',
-        'BACKEND': 'django_tex.engine.TeXEngine', 
+        'BACKEND': 'django_tex.engine.TeXEngine',
         'APP_DIRS': True,
     },
 ]
