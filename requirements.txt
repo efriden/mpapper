@@ -8,3 +8,4 @@ pip==10.0.1
 pytz==2019.1
 reportlab==3.5.23
 setuptools==39.0.1
+gunicorn==19.9.0
