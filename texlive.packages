@@ -1,6 +1,4 @@
 tasks
 sourcecodepro
-xpackages
-expl3
-xparse
-xtemplate
+l3packages
+l3kernel
