@@ -10,7 +10,7 @@ import random
 
 from django_tex.shortcuts import render_to_pdf
 
-import papperapp.multiplication
+import papperapp.multiplication as m
 
 #######
 #VIEWS:
@@ -37,8 +37,8 @@ def mult(request):
 	context = {
 		'exercise_name': 'MULTIPLIKATION MED DECIMAL',
 		'student_name': 'Elev Testson',
-		'ex': multiplication.generate_mult_example(3, 2),
-		'q': multiplication.generate_mult_exercises(3),
+		'ex': m.generate_mult_example(3, 2),
+		'q': m.generate_mult_exercises(3),
 		}
 	for key in context:
 		if (type(context[key]) == str):
