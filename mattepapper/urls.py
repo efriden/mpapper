@@ -18,6 +18,8 @@ urlpatterns = [
 	#example stuff:
     #url(r'^$', app.views.home, name='home'),
     url(r'^$', papperapp.views.mult, name='test'),
+    #url(r'^$', papperapp.views.mult, func=testFunc, name='test'),
+    #eller är det en dålig idé? Ska skillnaden mellan olika dok ligga i urlpatterns eller i views?
     url(r'^contact$', app.views.contact, name='contact'),
     url(r'^about$', app.views.about, name='about'),
     url(r'^login/$',

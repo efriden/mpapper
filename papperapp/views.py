@@ -10,6 +10,8 @@ import random
 
 from django_tex.shortcuts import render_to_pdf
 
+import mult
+
 #######
 #VIEWS:
 #######
@@ -35,8 +37,8 @@ def mult(request):
 	context = {
 		'exercise_name': 'MULTIPLIKATION MED DECIMAL',
 		'student_name': 'Elev Testson',
-		'ex': generate_mult_example(3, 2),
-		'q': generate_mult_exercises(3),
+		'ex': mult.generate_mult_example(3, 2),
+		'q': mult.generate_mult_exercises(3),
 		}
 	for key in context:
 		if (type(context[key]) == str):
@@ -52,11 +54,7 @@ def generate_exercises(n):
 		result.append(generate_fraction_triple())
 	return result
 
-def generate_mult_exercises(n):
-	result = []
-	for i in range(n):
-		result.append(generate_mult_triple())
-	return result
+
 
 def generate_fraction_triple():
 	results = []
@@ -64,19 +62,7 @@ def generate_fraction_triple():
 		results.append(generate_fraction())
 	return results
 
-def generate_mult_triple():
-	result = []
-	a = random.randint(2,9)
-	b = random.randint(2,9)
-	for i in range(3):
-		result.append(generate_mult(a,b,i)[0])
-	return result
 
-def generate_mult_example(a,b):
-	result = []
-	for i in range(3):
-		result.append(generate_mult(a,b,i))
-	return result
 
 def generate_fraction():
 	a = random.randint(2,9)
@@ -84,14 +70,7 @@ def generate_fraction():
 	c = int(a/b)
 	return [str(a), swedify(b), swedify(c)]
 
-def generate_mult(a, b, i):
-	new_b = round(b*(10**(-i)),i)
-	ans = round(a*new_b,i)
-	return [str(a) + "\cdot" +  swedify(new_b),
-		 swedify(ans)]
 
-def swedify(input):
-	return str.replace(str(input),'.',',')
 
 def tex_escape(text):
     """
