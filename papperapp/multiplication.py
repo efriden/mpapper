@@ -1,3 +1,5 @@
+import random
+
 def generate_mult_exercises(n):
 	result = []
 	for i in range(n):
