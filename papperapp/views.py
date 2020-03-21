@@ -10,8 +10,6 @@ import random
 
 from django_tex.shortcuts import render_to_pdf
 
-import mult
-
 #######
 #VIEWS:
 #######
@@ -37,8 +35,8 @@ def mult(request):
 	context = {
 		'exercise_name': 'MULTIPLIKATION MED DECIMAL',
 		'student_name': 'Elev Testson',
-		'ex': mult.generate_mult_example(3, 2),
-		'q': mult.generate_mult_exercises(3),
+		'ex': generate_mult_example(3, 2),
+		'q': generate_mult_exercises(3),
 		}
 	for key in context:
 		if (type(context[key]) == str):
