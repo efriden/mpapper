@@ -5,7 +5,7 @@ from django.template import RequestContext
 import re
 import io
 from django.http import FileResponse
-from reportlab.pdfgen import canvas
+#from reportlab.pdfgen import canvas
 import random
 
 from PyPDF2 import PdfFileMerger, PdfFileReader
