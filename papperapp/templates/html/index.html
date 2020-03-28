@@ -1,6 +1,7 @@
 <html>
 <head>
   <title>Mattepapper</title>
+  {% load staticfiles %}
   <link rel="stylesheet" type="text/css" href="{% static 'papperapp/css/mattepapper.css' %}" />
 </head>
 
@@ -9,7 +10,7 @@
   <h1>Hej hej</h1>
 </header>
 <section>
-  <form action="/your-name/" method="post">
+  <form action="/student-name/" method="post">
       {% csrf_token %}
       {{ form }}
       <input type="submit" value="Submit">
