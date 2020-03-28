@@ -21,6 +21,9 @@ import papperapp.generators.multiplication as m
 #VIEWS:
 #######
 
+def home(request):
+    return render(request, html/index.html);
+
 def mult(request):
 	template_name = 'tex/mult.tex'
 	student_names = ['Elev Testson1','Elev Testson2','Elev Testson3']
