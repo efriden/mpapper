@@ -1,14 +1,21 @@
 <html>
 <head>
   <title>Mattepapper</title>
-  <link rel="stylesheet" type="text/css" href="{% static 'app/css/mattepapper.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'papperapp/css/mattepapper.css' %}" />
 </head>
 
 <body>
-
-hej
-
-<p><a href="{% url 'mult' %}">Klicka här</a></p>
+<header>
+  <h1>Hej hej</h1>
+</header>
+<section>
+  <form action="/your-name/" method="post">
+      {% csrf_token %}
+      {{ form }}
+      <input type="submit" value="Submit">
+  </form>
+  <footer><p><a href="{% url 'mult' %}">Klicka här</a></p></footer>
+</section>
 
 </body>
 </html>
