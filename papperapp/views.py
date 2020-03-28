@@ -29,11 +29,10 @@ def home(request):
 def mult(request):
 	template_name = 'tex/mult.tex'
     student_names = []
-    #student_names = ['Elev Testson1','Elev Testson2','Elev Testson3']
 	exercise_name = "MULTIPLIKATION MED DECIMAL"
 
     if request.method == 'POST'
-        student_names.append(request.POST.student)
+        student_names.append(request.POST['student'])
 
 	pdfs = []
 	answers = {}
