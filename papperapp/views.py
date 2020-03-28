@@ -13,7 +13,7 @@ from PyPDF2 import PdfFileMerger, PdfFileReader
 
 from django_tex.shortcuts import render_to_pdf, compile_template_to_pdf
 
-import papperapp.multiplication as m
+import papperapp.generators.multiplication as m
 
 #ToDo: set up jinja template inheritance
 
@@ -48,34 +48,6 @@ def mult(request):
 		buffer = io.BytesIO(compile_template_to_pdf(template_name, context))
 
 		pdfs.append(buffer)
-
-	#answer_context = ""
-	#for student_name in answers:
-	#	answer_context += "\section*{" + student_name + "} "
-	#	answer_context += "\begin{wrapfigure} "
-		#todo - make it a list of inputs and iterate with jinja (% for .... %) or whatever
-
-
-
-
-		#for i in range(len(answers[student_name])):
-		#	answer_context += str(i+2)
-		#	answer_context += ":"
-
-		#	letters = ["a", "b", "c"]
-		#	for j in range(3):
-		#		answer_context += letters[j]
-		#		answer_context += ")"
-		#		answer_context += answers[student_name][i][j]
-		#		answer_context += " "
-
-		#	answer_context += "\\\\ "
-
-		#answer_context += "\end{wrapfigure}"
-
-	#answer_context = tex_escape(answer_context)
-
-
 
 	answer_page = io.BytesIO(compile_template_to_pdf("tex/answers.tex", {"content": answers, "exercise_name": exercise_name}))
 

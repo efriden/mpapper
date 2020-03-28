@@ -1,6 +1,10 @@
+"""
+Generates multiplication exercises on the form "3*0.8=3.2"
+"""
+
 import random
 
-def generate_mult_exercises(n):
+def generate_lvl1(n):
 	problems = []
 	answers = []
 	for i in range(n):
@@ -16,7 +20,7 @@ def generate_mult_exercises(n):
 		answers.append(triple_answers)
 	return [problems, answers]
 
-def generate_mult_problems(n):
+def generate_lvl2(n):
 	problems = []
 	answers = []
 	for i in range(n):
@@ -32,7 +36,7 @@ def generate_mult_problems(n):
 		answers.append(triple_answers)
 	return [problems, answers]
 
-def generate_mult_example(a,b):
+def generate_example(a,b):
 	result = []
 	for i in range(3):
 		result.append(generate_mult(a,b,i,False))
@@ -49,4 +53,7 @@ def generate_mult(a, b, i, random_exp = True):
 		 swedify(ans)]
 
 def swedify(input):
+    """
+    change "0.3" to "0,3"
+    """
 	return str.replace(str(input),'.',',')
