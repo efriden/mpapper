@@ -39,7 +39,7 @@ def mult(request):
 		context = {
 			'exercise_name': exercise_name,
 			'student_name': student_name,
-            'year': datetime.now().year,
+            #'year': datetime.now().year,
 			'ex': m.generate_example(3, 2),
 			'q': questions[0],
 			'p': problems[0],
