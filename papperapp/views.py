@@ -33,14 +33,14 @@ def mult(request):
 	answers = {}
 
 	for student_name in student_names:
-		questions = m.generate_mult_exercises(4)
-		problems = m.generate_mult_problems(2)
+		questions = m.generate_lvl1(4)
+		problems = m.generate_lvl2(2)
 		answers[student_name] = questions[1] + problems[1]
 		context = {
 			'exercise_name': exercise_name,
 			'student_name': student_name,
             'year': datetime.now().year,
-			'ex': m.generate_mult_example(3, 2),
+			'ex': m.generate_example(3, 2),
 			'q': questions[0],
 			'p': problems[0],
 			}
