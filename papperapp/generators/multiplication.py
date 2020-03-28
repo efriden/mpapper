@@ -54,6 +54,6 @@ def generate_mult(a, b, i, random_exp = True):
 
 def swedify(input):
     """
-    change "0.3" to "0,3"
+        change "0.3" to "0,3"
     """
-	return str.replace(str(input),'.',',')
+    return str.replace(str(input),'.',',')
