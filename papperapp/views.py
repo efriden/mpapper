@@ -22,7 +22,7 @@ import papperapp.generators.multiplication as m
 #######
 
 def home(request):
-    return render(request, html/index.html);
+    return render(request, 'html/index.html');
 
 def mult(request):
 	template_name = 'tex/mult.tex'
