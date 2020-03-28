@@ -15,6 +15,8 @@ from django_tex.shortcuts import render_to_pdf, compile_template_to_pdf
 
 import papperapp.generators.multiplication as m
 
+from .forms import NameForm
+
 #ToDo: set up jinja template inheritance
 
 #######
@@ -111,3 +113,22 @@ def tex_escape(text):
     }
     regex = re.compile('|'.join(re.escape(str(key)) for key in sorted(conv.keys(), key = lambda item: - len(item))))
     return regex.sub(lambda match: conv[match.group()], text)
+
+
+def get_name(request):
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = NameForm(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+            # process the data in form.cleaned_data as required
+            # ...
+            # redirect to a new URL:
+            return HttpResponseRedirect('/thanks/')
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form = NameForm()
+
+    return render(request, 'name.html', {'form': form})
