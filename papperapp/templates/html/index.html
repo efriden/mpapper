@@ -10,9 +10,10 @@
   <h1>Hej hej</h1>
 </header>
 <section>
-  <form action="/mult/" method="post">
+  <form action="/mult" method="post">
       {% csrf_token %}
       {{ form }}
+      <input type="text" name="student" value="Student">
       <input type="submit" value="Submit">
   </form>
   <footer><p><a href="{% url 'mult' %}">Klicka här</a></p></footer>
