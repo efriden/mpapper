@@ -24,11 +24,11 @@ from .forms import NameForm
 #######
 
 def home(request):
-    return render(request, 'html/index.html');
+    return render(request, 'html/index.html')
 
 def mult(request):
 	template_name = 'tex/mult.tex'
-    student_names = []
+    student_names = ["testnamn"]
 	exercise_name = "MULTIPLIKATION MED DECIMAL"
 
     if (request.method == 'POST'):
