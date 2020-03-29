@@ -31,7 +31,7 @@ def mult(request):
     student_names = []
 	exercise_name = "MULTIPLIKATION MED DECIMAL"
 
-    if request.method == 'POST'
+    if (request.method == 'POST'):
         student_names.append(request.POST['student'])
 
 	pdfs = []
