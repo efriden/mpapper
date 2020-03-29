@@ -27,17 +27,17 @@ def home(request):
     return render(request, 'html/index.html')
 
 def mult(request):
-	template_name = 'tex/mult.tex'
-    student_names = ["testnamn"]
-	exercise_name = "MULTIPLIKATION MED DECIMAL"
+    template_name = "tex/mult.tex"
+    exercise_name = "MULTIPLIKATION MED DECIMAL"
+    student_name = ["test"]
 
     if (request.method == 'POST'):
         student_names.append(request.POST['student'])
 
-	pdfs = []
-	answers = {}
+    pdfs = []
+    answers = {}
 
-	for student_name in student_names:
+    for student_name in student_names:
 		questions = m.generate_lvl1(4)
 		problems = m.generate_lvl2(2)
 		answers[student_name] = questions[1] + problems[1]
@@ -57,37 +57,23 @@ def mult(request):
 
 		pdfs.append(buffer)
 
-	answer_page = io.BytesIO(compile_template_to_pdf("tex/answers.tex", {"content": answers, "exercise_name": exercise_name}))
+    answer_page = io.BytesIO(compile_template_to_pdf("tex/answers.tex", {"content": answers, "exercise_name": exercise_name}))
 
-	merger = PdfFileMerger()
+    merger = PdfFileMerger()
 
-	for pdf in pdfs:
+    for pdf in pdfs:
 		merger.append(PdfFileReader(pdf))
 
-	merger.append(PdfFileReader(answer_page))
+    merger.append(PdfFileReader(answer_page))
 
-	output_buffer = io.BytesIO()
+    output_buffer = io.BytesIO()
 
-	merger.write(output_buffer)
+    merger.write(output_buffer)
 
-	http_response = HttpResponse(output_buffer.getvalue() , content_type='application/pdf')
-	http_response['Content-Disposition'] = 'filename="mattepapper.pdf"'
+    http_response = HttpResponse(output_buffer.getvalue() , content_type='application/pdf')
+    http_response['Content-Disposition'] = 'filename="mattepapper.pdf"'
 
-	return http_response
-
-
-
-# def fractions(request):
-# 	template_name = 'tex/fractions.tex'
-# 	context = {
-# 		'exercise_name': 'BRÅK MED DECIMAL',
-# 		'student_name': 'Elev Testson',
-# 		'numbers': generate_exercises(3),
-# 		}
-# 	for key in context:
-# 		if (type(context[key]) == str):
-# 			context[key] = tex_escape(context[key])
-# 	return render_to_pdf(request, template_name, context, filename='test.pdf')
+    return http_response
 
 
 ###########
