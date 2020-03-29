@@ -38,31 +38,31 @@ def mult(request):
     answers = {}
 
     for student_name in student_names:
-		questions = m.generate_lvl1(4)
-		problems = m.generate_lvl2(2)
-		answers[student_name] = questions[1] + problems[1]
-		context = {
-			'exercise_name': exercise_name,
-			'student_name': student_name,
+        questions = m.generate_lvl1(4)
+        problems = m.generate_lvl2(2)
+        answers[student_name] = questions[1] + problems[1]
+        context = {
+            'exercise_name': exercise_name,
+            'student_name': student_name,
             #'year': datetime.now().year,
-			'ex': m.generate_example(3, 2),
-			'q': questions[0],
-			'p': problems[0],
-			}
-		for key in context:
-			if (type(context[key]) == str):
-				context[key] = tex_escape(context[key])
+            'ex': m.generate_example(3, 2),
+            'q': questions[0],
+            'p': problems[0],
+            }
+        for key in context:
+            if (type(context[key]) == str):
+                context[key] = tex_escape(context[key])
 
-		buffer = io.BytesIO(compile_template_to_pdf(template_name, context))
+        buffer = io.BytesIO(compile_template_to_pdf(template_name, context))
 
-		pdfs.append(buffer)
+        pdfs.append(buffer)
 
     answer_page = io.BytesIO(compile_template_to_pdf("tex/answers.tex", {"content": answers, "exercise_name": exercise_name}))
 
     merger = PdfFileMerger()
 
     for pdf in pdfs:
-		merger.append(PdfFileReader(pdf))
+        merger.append(PdfFileReader(pdf))
 
     merger.append(PdfFileReader(answer_page))
 
@@ -98,7 +98,7 @@ def tex_escape(text):
         '\\': r'\textbackslash{}',
         '<': r'\textless{}',
         '>': r'\textgreater{}',
-		'Å': r'\AA ',
+        'Å': r'\AA ',
     }
     regex = re.compile('|'.join(re.escape(str(key)) for key in sorted(conv.keys(), key = lambda item: - len(item))))
     return regex.sub(lambda match: conv[match.group()], text)
