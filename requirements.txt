@@ -10,3 +10,4 @@ reportlab==3.5.23
 setuptools==39.0.1
 gunicorn==19.9.0
 PyPDF2==1.26.0
+whitenoise==5.01
