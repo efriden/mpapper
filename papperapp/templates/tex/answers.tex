@@ -20,20 +20,17 @@
 
 \begin{document}
 
-\begin{multicols}{2}
+\begin{multicols*}{2}
 
 {% for student_name, answer_set in content.items() %}
-	%\begin{wrapfigure}
 	\section*{ {{- student_name -}} }
 	{% for answer_triple in answer_set %}
 		\textbf{ {{- loop.index + 1 -}}: }
 		{% for answer in answer_triple %}
 			{{- answer -}};
-		{% endfor %}
-	{% endfor %}
-	%\end{wrapfigure}
+		{% endfor %}\newline{% endfor %}
 {% endfor %}
 
-\end{multicols}
+\end{multicols*}
 
 \end{document}
