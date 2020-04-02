@@ -32,7 +32,7 @@ def mult(request):
     student_names = ["test"]
 
     if (request.method == 'POST'):
-        student_names.append(request.POST['student'])
+        student_names = request.POST['student'].split(",")
 
     pdfs = []
     answers = {}
