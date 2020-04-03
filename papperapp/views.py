@@ -36,7 +36,10 @@ def mult(request):
         "example": m.generate_example,
     }
 
-    http_response = pdf_from_generators(generators, template_name, exercise_name, student_names)
+    if (request.method == 'POST'):
+        student_names = request.POST['student'].split(",")
+
+    http_response = pdf_from_generators(request, generators, template_name, exercise_name, student_names)
 
     return http_response
 
@@ -45,10 +48,7 @@ def mult(request):
 #FUNCTIONS:
 ###########
 
-def pdf_from_generators(generators, template_name, exercise_name, student_names):
-    if (request.method == 'POST'):
-        student_names = request.POST['student'].split(",")
-
+def pdf_from_generators(request, generators, template_name, exercise_name, student_names):
     pdfs = []
     answers = {}
 
