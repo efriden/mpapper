@@ -35,7 +35,7 @@ ALLOWED_HOSTS = [
 
 INSTALLED_APPS = [
     'app',
-	'papperapp',
+    'papperapp',
     # Add your apps here to enable them
     'django.contrib.admin',
     'django.contrib.auth',
@@ -43,8 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-	# Erics egna:
-	'django_tex',
+    # Erics egna:
+    'django_tex',
 ]
 
 MIDDLEWARE_CLASSES = [
