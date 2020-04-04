@@ -49,7 +49,7 @@ def generate_mult(a, b, i, random_exp = True):
 		exp = i
 	new_b = round(b*(10**(-exp)),exp)
 	ans = round(a/new_b,exp)
-	return [swedify("$\frac{" + str(a) + "}{" +  str(new_b) + "}$",
+	return [swedify("$\frac{" + str(a) + "}{" +  str(new_b) + "}$"),
 		 swedify(ans)]
 
 def swedify(input):
