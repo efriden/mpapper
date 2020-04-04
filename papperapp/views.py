@@ -14,6 +14,7 @@ from PyPDF2 import PdfFileMerger, PdfFileReader
 from django_tex.shortcuts import render_to_pdf, compile_template_to_pdf
 
 import papperapp.generators.multiplication as m
+import papperapp.generators.fraction as f
 
 from .forms import NameForm
 
@@ -34,6 +35,23 @@ def mult(request):
         "lvl1": m.generate_lvl1,
         "lvl2": m.generate_lvl2,
         "example": m.generate_example,
+    }
+
+    if (request.method == 'POST'):
+        student_names = request.POST['student'].split(",")
+
+    http_response = pdf_from_generators(request, generators, template_name, exercise_name, student_names)
+
+    return http_response
+
+def frac(request):
+    template_name = "tex/mult.tex"
+    exercise_name = "DIVISION MED DECIMAL"
+    student_names = ["test"]
+    generators = {
+        "lvl1": f.generate_lvl1,
+        "lvl2": f.generate_lvl2,
+        "example": f.generate_example,
     }
 
     if (request.method == 'POST'):
