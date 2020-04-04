@@ -42,7 +42,7 @@ def generate_example(a,b):
 		result.append(generate_mult(a,b,i,False))
 	return result
 
-def generate_frac(a, b, i, random_exp = True):
+def generate_mult(a, b, i, random_exp = True):
 	if (i == 2 and random_exp):
 		exp = random.randint(2,4)
 	else:
