@@ -14,7 +14,7 @@ from PyPDF2 import PdfFileMerger, PdfFileReader
 from django_tex.shortcuts import render_to_pdf, compile_template_to_pdf
 
 import papperapp.generators.multiplication as m
-import papperapp.generators.fraction as f
+import papperapp.generators.fractions as f
 
 from .forms import NameForm
 
