@@ -148,4 +148,4 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 #    os.path.join(BASE_DIR, 'static'),
 #)
 
-LATEX_INTERPRETER = 'xelatex'
+LATEX_INTERPRETER = 'pdflatex'
