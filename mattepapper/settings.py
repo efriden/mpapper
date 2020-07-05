@@ -36,7 +36,7 @@ ALLOWED_HOSTS = [
 
 INSTALLED_APPS = [
     'app',
-	'papperapp',
+    'papperapp',
     # Add your apps here to enable them
     'django.contrib.admin',
     'django.contrib.auth',
@@ -44,8 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-	# Erics egna:
-	'django_tex',
+    # Erics egna:
+    'django_tex',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -57,6 +57,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'mattepapper.urls'
@@ -135,7 +136,16 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+#originalet:
 STATIC_ROOT = posixpath.join(*(BASE_DIR.split(os.path.sep) + ['static']))
 
+#kopierad från https://devcenter.heroku.com/articles/django-assets
+#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+#STATICFILES_DIRS = (
+#    os.path.join(BASE_DIR, 'static'),
+#)
 
 LATEX_INTERPRETER = 'pdflatex'

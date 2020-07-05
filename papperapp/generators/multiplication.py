@@ -1,5 +1,5 @@
 """
-Generates multiplication exercises on the form "3*0.8=3.2"
+Generates multiplication exercises on the form "3*0,8=3,2"
 """
 
 import random

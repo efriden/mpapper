@@ -14,6 +14,7 @@ from PyPDF2 import PdfFileMerger, PdfFileReader
 from django_tex.shortcuts import render_to_pdf, compile_template_to_pdf
 
 import papperapp.generators.multiplication as m
+import papperapp.generators.fractions as f
 
 from .forms import NameForm
 
@@ -30,24 +31,56 @@ def mult(request):
     template_name = "tex/mult.tex"
     exercise_name = "MULTIPLIKATION MED DECIMAL"
     student_names = ["test"]
+    generators = {
+        "lvl1": m.generate_lvl1,
+        "lvl2": m.generate_lvl2,
+        "example": m.generate_example,
+    }
 
     if (request.method == 'POST'):
         student_names = request.POST['student'].split(",")
 
+    http_response = pdf_from_generators(request, generators, template_name, exercise_name, student_names)
+
+    return http_response
+
+def frac(request):
+    template_name = "tex/mult.tex"
+    exercise_name = "DIVISION MED DECIMAL"
+    student_names = ["test"]
+    generators = {
+        "lvl1": f.generate_lvl1,
+        "lvl2": f.generate_lvl2,
+        "example": f.generate_example,
+    }
+
+    if (request.method == 'POST'):
+        student_names = request.POST['student'].split(",")
+
+    http_response = pdf_from_generators(request, generators, template_name, exercise_name, student_names)
+
+    return http_response
+
+
+###########
+#FUNCTIONS:
+###########
+
+def pdf_from_generators(request, generators, template_name, exercise_name, student_names):
     pdfs = []
     answers = {}
 
     for student_name in student_names:
-        questions = m.generate_lvl1(4)
-        problems = m.generate_lvl2(2)
-        answers[student_name] = questions[1] + problems[1]
+        lvl1 = generators["lvl1"](4)
+        lvl2 = generators["lvl2"](2)
+        answers[student_name] = lvl1[1] + lvl2[1]
         context = {
             'exercise_name': exercise_name,
             'student_name': student_name,
             #'year': datetime.now().year,
-            'ex': m.generate_example(3, 2),
-            'q': questions[0],
-            'p': problems[0],
+            'ex': generators["example"](3, 2),
+            'q': lvl1[0],
+            'p': lvl2[0],
             }
         for key in context:
             if (type(context[key]) == str):
@@ -74,11 +107,6 @@ def mult(request):
     http_response['Content-Disposition'] = 'filename="mattepapper.pdf"'
 
     return http_response
-
-
-###########
-#FUNCTIONS:
-###########
 
 def tex_escape(text):
     """
