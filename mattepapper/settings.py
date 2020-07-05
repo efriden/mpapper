@@ -27,7 +27,8 @@ SECRET_KEY = '448c1cb5-36cb-46a7-8e8b-0a29c5142122'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'mpapper.herokuapp.com'
+    'mpapper.herokuapp.com',
+    '127.0.0.1'
 ]
 
 

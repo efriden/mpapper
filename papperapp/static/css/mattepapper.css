@@ -1,4 +1,7 @@
-p {
-  padding: 2em;
-  background: red;
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: (252, 246, 245)
 }
