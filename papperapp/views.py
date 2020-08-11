@@ -90,7 +90,7 @@ def pdf_from_generators(request, generators, template_name, exercise_name, stude
 
         pdfs.append(buffer)
 
-    answer_page = io.BytesIO(compile_template_to_pdf("tex/answers.tex", {"content": answers, "exercise_name": exercise_name}))
+    answer_page = io.BytesIO(compile_template_to_pdf("papperapp/tex/answers.tex", {"content": answers, "exercise_name": exercise_name}))
 
     merger = PdfFileMerger()
 
