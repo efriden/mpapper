@@ -1,0 +1,36 @@
+\documentclass[12pt,sans]{article}
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+\usepackage[default]{sourcecodepro}
+%\usepackage{fullpage}
+\usepackage{fancyhdr}
+%\usepackage{euler}
+%\usepackage{euscript}
+\usepackage{pgffor}
+\usepackage{multicol}
+%\usepackage{wrapfig}
+
+\usepackage[a4paper, total={7in, 9in}]{geometry}
+
+\pagestyle{fancy}
+\lhead{Mattepapper}
+\chead{\large{ {{- exercise_name -}} }}
+\rhead{ Facit }
+
+
+\begin{document}
+
+\begin{multicols*}{2}
+
+{% for student_name, answer_set in content.items() %}
+	\section*{ {{- student_name -}} }
+	{% for answer_triple in answer_set %}
+		\textbf{ {{- loop.index + 1 -}}: }
+		{% for answer in answer_triple %}
+			{{- answer -}};
+		{% endfor %}\newline{% endfor %}
+{% endfor %}
+
+\end{multicols*}
+
+\end{document}

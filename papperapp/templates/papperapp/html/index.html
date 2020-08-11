@@ -1,0 +1,124 @@
+<html>
+    <head>
+        <title>Mattepapper</title>
+        {% load staticfiles %}
+        <link rel="stylesheet" type="text/css" href="{% static 'papperapp/css/mattepapper.css' %}" />
+    </head>
+
+    <body>
+    <header>
+        <h1>Mattepapper.se</h1>
+    </header>
+    <section>
+        <form action="/mult" method="post">
+            <section id="form">
+                {% csrf_token %}
+                {{ form }}
+                <div>
+                    <p>Namn (separera flera namn med kommatecken eller ny rad)</p>
+                    <textarea type="text" name="student"
+                    placeholder=
+"Ex:
+Fatima, Bob, Alice
+
+Ex:
+Fatima
+Bob
+Alice
+
+Ex:
+Fatima,
+Bob,
+Alice
+"
+                    id=form_one></textarea><br>
+                </div>
+                <h4>ELLER</h4>
+                <p>Ange ett antal så skapar vi namn.</p>
+                <div>
+                    <input type="text" name="antal" placeholder="Ex: 13" id="form_two"><br>
+                </div>
+            </section>
+
+            <section id="choices">
+                <article>
+                    <label class="choice">
+                        <input type="radio" name="choice" value="mult">
+                        <span class="checkmark"></span>
+                    </label>
+                    <h3>Multiplikation med decimal</h3>
+                </article>
+                <article>
+                    <label class="choice">
+                        <input type="radio" name="choice" value="ekv">
+                        <span class="checkmark"></span>
+                    </label>
+                    <h3>Lös ekvationen</h3>
+                </article>
+                <article>
+                    <label class="choice">
+                        <input type="radio" name="choice" value="div">
+                        <span class="checkmark"></span>
+                    </label>
+                    <h3>Division med decimal</h3>
+                </article>
+                <article>
+                    <label class="choice">
+                        <input type="radio" name="choice" value="add">
+                        <span class="checkmark"></span>
+                    </label>
+                    <h3>Addition med potenser</h3>
+                </article>
+                <footer>
+                    <input type="submit" value="Skapa n *papper" id="submit">
+                </footer>
+            </section>
+        </form>
+        <footer>
+        </footer>
+    </section>
+<!--
+    <aside id="closed">
+        <nav>
+            <ul>
+                <li id="one" class="one">Hjälp</li>
+                <li id="two" class="two">Om oss</li>
+                <li id="three" class="three">Kontakt</li>
+            </ul>
+        </nav>
+    </aside>
+-->
+    <aside id="open">
+        <nav>
+            <ul>
+                <li id="close">X</li>
+                <li id="one" class="one">Hjälp</li>
+                <li id="two" class="two">Om oss</li>
+                <li id="three" class="three">Kontakt</li>
+            </ul>
+        </nav>
+        <section id="info">
+            <div id="cone" class="container">
+                <header><h2>Hjälp och tips</h2></header>
+                <div class="text one">
+                    <p>Massa text</p>
+                </div>
+            </div>
+            <div id="ctwo" class="container">
+                <header><h2>Om oss</h2></header>
+                <div class="text two">
+                    <p>Massa text</p>
+                </div>
+            </div>
+            <div id="cthree" class="container">
+                <header><h2>Kontakt</h2></header>
+                <div class="text three">
+                    <p>Massa text</p>
+                </div>
+            </div>
+        </section>
+    </aside>
+
+    <script src="{% static 'papperapp/javascript/script.js' %}"></script>
+</body>
+</html>

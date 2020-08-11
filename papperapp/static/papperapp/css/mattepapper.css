@@ -1,0 +1,294 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+html {
+    border: 1em solid #434343;
+}
+
+body {
+    background: #fcf6f5;
+}
+
+header {
+    padding-left: 3em;
+    padding-top: 1em;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 3em;
+    padding: 0;
+    margin: 0;
+}
+
+section {
+    margin-top: 0em;
+    margin-left: 1em;
+    margin-right: 8em;
+    margin-bottom: 10em;
+}
+
+p {
+    font-family: monospace;
+    font-weight: 700;
+    font-size: 1.02em;
+}
+
+#form {
+    float: left;
+    width: 25%;
+    margin: 1em 1em 1em 1em;
+}
+
+#choices {
+    float: left;
+    height: 70%;
+    width: 65%;
+    margin: 0 1em 2em 1em;
+}
+
+#form_one, #form_two {
+    width: 90%;
+    border: 0.1em solid #999;
+    border-radius: 0.5em;
+    padding: 0.5em;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+#form_one {
+    height: 20em;
+    resize: none;
+}
+
+#form_two {
+}
+
+#submit {
+    position: fixed;
+    bottom: 2em;
+    left: 0;
+    right: 0;
+    background: #addfad;
+    left: 30%;
+    width: 40%;
+    height: 5em;
+    border: 0.2em solid #595959;
+    border-radius: 0.5em;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+article {
+    background: white;
+    float: left;
+    width: 13em;
+    height: 8em;
+    border: 0.1em solid #999;
+    border-radius: 1em;
+    margin: 2em 1.5em 2em 1.5em;
+    padding: 0.5em;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+h3 {
+    color: #303030;
+    float: right;
+    margin: 0;
+    padding: 0;
+    width: 74%;
+    font-family: monospace;
+    font-size: 1.3em
+}
+
+
+.choice {
+    float: left;
+    display: block;
+    position: relative;
+    padding-left: 2em;
+    margin-bottom: 1em;
+    cursor: pointer;
+    font-size: 1.5em;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default radio button */
+
+.choice input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+
+}
+
+/* Create a custom radio button */
+.checkmark {
+    position: absolute;
+    top: 0.1em;
+    left: 0;
+    height: 1.5em;
+    width: 1.5em;
+    background-color: #eee;
+    border: 0.1em solid #434343;
+}
+
+/* On mouse-over, add a grey background color */
+.choice:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.choice input:checked ~ .checkmark {
+    background-color: white;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.choice input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.choice .checkmark:after {
+ 	top: 0.2em;
+	left: 0.2em;
+    right: 0.2em;
+    bottom: 0.2em;
+	background: orange;
+
+}
+
+/*#closed nav {
+    width: 12em;
+}*/
+
+aside {
+    border-left: 0.5em solid #434343;
+    position: fixed;
+    right: -37.5em;
+    top: 0;
+    bottom: 0;
+}
+
+#open{
+    width: 50em;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    display: block;
+}
+
+#info header {
+    text-align: right;
+    padding: 0;
+    padding-top: 1.4em;
+    margin: 0;
+    height: 5em;
+    background: #434343;
+}
+
+h2 {
+    font-size: 2.8em;
+    color: white;
+    margin: 0 0.3em 0 0;
+    padding: 0;
+    font-weight: normal;
+}
+
+nav {
+    float: left;
+    background: #434343;
+    width: 25%;
+    height: 100%;
+    margin-top: 0;
+}
+
+ul {
+    list-style: none;
+    width: 100%;
+    padding: 0;
+    margin-top: 5em;
+}
+
+li {
+    font-size: 1.2em;
+    width: 100%;
+    margin: 0 0 0 0;
+    padding: 0.8em 0 0.8em 0.8em;
+    cursor: pointer;
+}
+
+.one {
+    background: #f0e1b9;
+    border-color: #f0e1b9;
+}
+
+.two {
+    background: #f3db74;
+    border-color: #f3db74;
+}
+
+.three {
+    background: #a13941;
+    border-color: #a13941;
+}
+
+#close {
+    padding: 0;
+    padding-left: 0.3em;
+    position: absolute;
+    top: 0.35em;
+    left: 0em;
+    color: white;
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 4em;
+    display: none;
+    width: 10%;
+}
+
+#info {
+    background: #fcf6f5;
+    float: left;
+    width: 75%;
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.text {
+    position: absolute;
+    top: 5em;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: white;
+    border-width: 0.8em;
+    border-style: solid;
+    padding: 0 1em 0 1em;
+}
+
+/*#form_one:focus, #form_two:focus {
+    border: 0.1em solid #666;
+    border-radius: 0.5em;
+}*/

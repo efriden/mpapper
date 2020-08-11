@@ -25,10 +25,10 @@ from .forms import NameForm
 #######
 
 def home(request):
-    return render(request, 'html/index.html')
+    return render(request, 'papperapp/html/index.html')
 
 def mult(request):
-    template_name = "tex/mult.tex"
+    template_name = "papperapp/tex/mult.tex"
     exercise_name = "MULTIPLIKATION MED DECIMAL"
     student_names = ["test"]
     generators = {
@@ -45,7 +45,7 @@ def mult(request):
     return http_response
 
 def frac(request):
-    template_name = "tex/mult.tex"
+    template_name = "papperapp/tex/mult.tex"
     exercise_name = "DIVISION MED DECIMAL"
     student_names = ["test"]
     generators = {
@@ -148,4 +148,4 @@ def get_name(request):
     else:
         form = NameForm()
 
-    return render(request, 'index.html', {'form': form})
+    return render(request, 'papperapp/index.html', {'form': form})
