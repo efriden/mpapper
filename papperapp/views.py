@@ -45,7 +45,7 @@ def mul_decimal(request):
     return http_response
 
 def div_decimal(request):
-    template_name = "papperapp/tex/div-decimal.tex"
+    template_name = "papperapp/tex/mul-decimal.tex"
     exercise_name = "DIVISION MED DECIMAL"
     student_names = ["test"]
     generators = {
@@ -57,9 +57,10 @@ def div_decimal(request):
     if (request.method == 'POST'):
         student_names = request.POST['student'].split(",")
 
-    #http_response = pdf_from_generators(request, generators, template_name, exercise_name, student_names)
+    http_response = pdf_from_generators(request, generators, template_name, exercise_name, student_names)
 
-    http_response = HttpResponse(compile_template_to_pdf("papperapp/tex/placeholder.tex", {}) , content_type='application/pdf')
+    #REPLACE WITH PLACEHOLDER:
+    #http_response = HttpResponse(compile_template_to_pdf("papperapp/tex/placeholder.tex", {}) , content_type='application/pdf')
 
 
     return http_response
