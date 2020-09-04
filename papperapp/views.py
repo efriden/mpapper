@@ -28,7 +28,7 @@ def home(request):
     return render(request, 'papperapp/html/index.html')
 
 def mult(request):
-    template_name = "papperapp/tex/mult.tex"
+    template_name = "papperapp/tex/mul-decimal.tex"
     exercise_name = "MULTIPLIKATION MED DECIMAL"
     student_names = ["test"]
     generators = {
@@ -45,7 +45,7 @@ def mult(request):
     return http_response
 
 def frac(request):
-    template_name = "papperapp/tex/mult.tex"
+    template_name = "papperapp/tex/div-decimal.tex"
     exercise_name = "DIVISION MED DECIMAL"
     student_names = ["test"]
     generators = {
@@ -61,6 +61,11 @@ def frac(request):
 
     return http_response
 
+def equations(request):
+    return compile_template_to_pdf("papperapp/tex/placeholder.tex")
+
+def add-exponents(request):
+    return compile_template_to_pdf("papperapp/tex/placeholder.tex")
 
 ###########
 #FUNCTIONS:
