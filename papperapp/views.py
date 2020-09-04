@@ -62,11 +62,11 @@ def div_decimal(request):
     return http_response
 
 def equation(request):
-    http_response = HttpResponse(compile_template_to_pdf("papperapp/tex/placeholder.tex") , content_type='application/pdf')
+    http_response = HttpResponse(compile_template_to_pdf("papperapp/tex/placeholder.tex", {}) , content_type='application/pdf')
     return http_response
 
 def add_exponent(request):
-    http_response = HttpResponse(compile_template_to_pdf("papperapp/tex/placeholder.tex") , content_type='application/pdf')
+    http_response = HttpResponse(compile_template_to_pdf("papperapp/tex/placeholder.tex", {}) , content_type='application/pdf')
     return http_response
 
 ###########
