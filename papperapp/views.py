@@ -57,7 +57,10 @@ def div_decimal(request):
     if (request.method == 'POST'):
         student_names = request.POST['student'].split(",")
 
-    http_response = pdf_from_generators(request, generators, template_name, exercise_name, student_names)
+    #http_response = pdf_from_generators(request, generators, template_name, exercise_name, student_names)
+
+    http_response = HttpResponse(compile_template_to_pdf("papperapp/tex/placeholder.tex", {}) , content_type='application/pdf')
+
 
     return http_response
 
