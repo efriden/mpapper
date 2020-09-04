@@ -62,7 +62,8 @@ def frac(request):
     return http_response
 
 def equations(request):
-    return compile_template_to_pdf("papperapp/tex/placeholder.tex")
+    http_response = HttpResponse(compile_template_to_pdf("papperapp/tex/placeholder.tex") , content_type='application/pdf')
+    return HttpResponse
 
 def add-exponents(request):
     return compile_template_to_pdf("papperapp/tex/placeholder.tex")
