@@ -19,8 +19,8 @@ urlpatterns = [
     url(r'^$', papperapp.views.home, name='home'),
     url(r'^mul_decimal$', papperapp.views.mul_decimal, name='mul_decimal'),
     url(r'^div_decimal$', papperapp.views.div_decimal, name='div_decimal'),
-    url(r'^add_exponents$', papperapp.views.add_exponents, name='add_exponents'),
-    url(r'^equations$', papperapp.views.equations, name='equations'),
+    url(r'^add_exponent$', papperapp.views.add_exponent, name='add_exponent'),
+    url(r'^equation$', papperapp.views.equation, name='equation'),
     #url(r'^$', papperapp.views.mult, func=testFunc, name='test'),
     #eller är det en dålig idé? Ska skillnaden mellan olika dok ligga i urlpatterns eller i views?
     url(r'^contact$', app.views.contact, name='contact'),
