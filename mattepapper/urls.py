@@ -17,8 +17,8 @@ import app.views
 urlpatterns = [
 	#example stuff:
     url(r'^$', papperapp.views.home, name='home'),
-    url(r'^mult$', papperapp.views.mult, name='mult'),
-    url(r'^frac$', papperapp.views.frac, name='frac'),
+    url(r'^mul_decimal$', papperapp.views.mul_decimal, name='mul_decimal'),
+    url(r'^div_decimal$', papperapp.views.div_decimal, name='div_decimal'),
     url(r'^add_exponents$', papperapp.views.add_exponents, name='add_exponents'),
     url(r'^equations$', papperapp.views.equations, name='equations'),
     #url(r'^$', papperapp.views.mult, func=testFunc, name='test'),

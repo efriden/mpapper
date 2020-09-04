@@ -27,7 +27,7 @@ from .forms import NameForm
 def home(request):
     return render(request, 'papperapp/html/index.html')
 
-def mult(request):
+def mul_decimal(request):
     template_name = "papperapp/tex/mul-decimal.tex"
     exercise_name = "MULTIPLIKATION MED DECIMAL"
     student_names = ["test"]
@@ -44,7 +44,7 @@ def mult(request):
 
     return http_response
 
-def frac(request):
+def div_decimal(request):
     template_name = "papperapp/tex/div-decimal.tex"
     exercise_name = "DIVISION MED DECIMAL"
     student_names = ["test"]
@@ -61,11 +61,11 @@ def frac(request):
 
     return http_response
 
-def equations(request):
+def equation(request):
     http_response = HttpResponse(compile_template_to_pdf("papperapp/tex/placeholder.tex") , content_type='application/pdf')
     return http_response
 
-def add_exponents(request):
+def add_exponent(request):
     http_response = HttpResponse(compile_template_to_pdf("papperapp/tex/placeholder.tex") , content_type='application/pdf')
     return http_response
 
