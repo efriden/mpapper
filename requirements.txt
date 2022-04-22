@@ -7,5 +7,5 @@ pip==10.0.1
 pytz==2019.1
 setuptools==39.0.1
 gunicorn==19.9.0
-PyPDF2==1.26.0
+PyPDF2==1.27.5
 whitenoise==5.0.1
